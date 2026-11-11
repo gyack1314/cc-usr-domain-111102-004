@@ -1,0 +1,12 @@
+[
+  {
+    "id": "default",
+    "keys": {
+      "store": "string",
+      "task": "integer"
+    },
+    "budget_bytes": 2048,
+    "open_files": 6,
+    "record_overhead": 64
+  }
+]

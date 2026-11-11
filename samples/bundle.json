@@ -1,0 +1,14 @@
+{
+  "name": "遥测与履约明细的有界内存外连接",
+  "files": [
+    {
+      "path": "left.json"
+    },
+    {
+      "path": "right.json"
+    },
+    {
+      "path": "config.json"
+    }
+  ]
+}

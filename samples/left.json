@@ -1,0 +1,26 @@
+[
+  {
+    "source_row_id": "L1",
+    "store": "S1",
+    "task": 1,
+    "value": "a"
+  },
+  {
+    "source_row_id": "L2",
+    "store": "S1",
+    "task": 1,
+    "value": "b"
+  },
+  {
+    "source_row_id": "L3",
+    "store": "S2",
+    "task": null,
+    "value": "c"
+  },
+  {
+    "source_row_id": "L4",
+    "store": "S3",
+    "task": 3,
+    "value": "d"
+  }
+]

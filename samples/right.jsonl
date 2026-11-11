@@ -1,0 +1,4 @@
+{"source_row_id": "R1", "store": "S1", "task": 1, "value": "x"}
+{"source_row_id": "R2", "store": "S1", "task": 1, "value": "y"}
+{"source_row_id": "R3", "store": "S2", "task": null, "value": "z"}
+{"source_row_id": "R4", "store": "S4", "task": 4, "value": "w"}

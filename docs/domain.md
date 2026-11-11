@@ -1,0 +1,5 @@
+# 领域数据约定
+
+source_row_id必须为非空字符串，按码点排序。schema为键列名到integer/string的映射；null允许但不参与等值连接。配置budget_bytes包含规范JSON编码行大小和每行64字节固定开销，预算账是明确可注入的逻辑内存上界，不声称等于Python RSS；临时编解码单行的独立最大尺寸也须文档化并受同一budget限制。文件描述符上限包含输入、spill及输出。JSONL每行一条对象，不以可重读文件替代迭代器合同。
+
+全部资料为本地合成。samples保留来源状态，读取和存档不等于业务验证通过；异常记录不被自动修改。workbench/domain.py中的现有函数可独立调用，tests/domain_checks.py演示其行为。
