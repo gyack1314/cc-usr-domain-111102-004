@@ -1,6 +1,6 @@
 # 遥测与履约明细的有界内存外连接资料库
 
-只读单次JSONL行流、连接键类型检查与可控大组资料生成器。 资料在samples，数据语义见docs/domain.md，本地存档说明见docs/catalog.md。
+只读单次JSONL行流、连接键类型检查、有界内存流式full outer join与可控大组资料生成器。 资料在samples，数据语义见docs/domain.md，本地存档说明见docs/catalog.md，外连接合同见docs/join.md。
 
 ## 运行
 
@@ -10,11 +10,13 @@
 python -m workbench.cli inspect samples
 python -m workbench.cli ingest samples state/raw.sqlite3
 python -m workbench.cli catalog state/raw.sqlite3
+python -m workbench.cli join samples/left.jsonl samples/right.jsonl \
+  --keys store:string,task:integer --budget-bytes 2048 --open-files 6
 python -m unittest discover -s tests -v
 python -m compileall -q workbench tests
 ```
 
-inspect查看文件行数和摘要；ingest将原始包放入SQLite；catalog列出原始包。测试覆盖已有资料读取、存档幂等及领域原语，compileall检查源码编译。业务计算不会由存档命令自动执行。
+inspect查看文件行数和摘要；ingest将原始包放入SQLite；catalog列出原始包。join逐行输出full outer join结果（每行含left/right原始对象与left_present/right_present标志），统计（spill段数、读写字节、归并轮次、峰值文件描述符等）打印到stderr。测试覆盖已有资料读取、存档幂等、领域原语与外连接的朴素袋连接逐项对照，compileall检查源码编译。业务计算不会由存档命令自动执行。
 
 ## 容器
 
